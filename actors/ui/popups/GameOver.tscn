@@ -56,7 +56,7 @@ layout_mode = 2
 
 [node name="PositionRank" parent="Panel/VBoxContainer/Positions" instance=ExtResource("2_6sriv")]
 layout_mode = 2
-text = "1. PlayerX11"
+text = "1. You"
 
 [node name="Buttons" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2

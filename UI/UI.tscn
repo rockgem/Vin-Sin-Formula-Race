@@ -35,4 +35,4 @@ offset_bottom = 357.0
 
 [node name="PositionRank" parent="Control/Positions" instance=ExtResource("2_njwqm")]
 layout_mode = 2
-text = "1. PlayerX11"
+text = "1. You"
