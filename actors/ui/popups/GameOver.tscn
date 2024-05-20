@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr6c5xaoupyiu"]
+[gd_scene load_steps=3 format=3 uid="uid://cr6c5xaoupyiu"]
 
 [ext_resource type="Script" path="res://actors/ui/popups/GameOver.gd" id="1_02u8u"]
+[ext_resource type="PackedScene" uid="uid://dooops83ymi5k" path="res://actors/ui/position_rank.tscn" id="2_6sriv"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -26,9 +27,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 366.0
-offset_top = 242.0
+offset_top = 146.0
 offset_right = -366.0
-offset_bottom = -242.0
+offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -49,6 +50,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Race Finished!"
 horizontal_alignment = 1
+
+[node name="Positions" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PositionRank" parent="Panel/VBoxContainer/Positions" instance=ExtResource("2_6sriv")]
+layout_mode = 2
+text = "1. PlayerX11"
 
 [node name="Buttons" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
