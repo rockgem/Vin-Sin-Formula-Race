@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkeqt4sok007o"]
+
+[ext_resource type="Script" path="res://Player/Character2D.gd" id="1_soq1q"]
+[ext_resource type="Texture2D" uid="uid://cbb8wmds0a1kn" path="res://Art/Red/Red -.png" id="2_mn15i"]
+[ext_resource type="Script" path="res://Player/PlayerSprite.gd" id="3_mvxu6"]
+
+[sub_resource type="GDScript" id="GDScript_15smr"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywgp1"]
+size = Vector2(218.4, 118.4)
+
+[node name="Vehicle" type="CharacterBody2D" groups=["Vehicle"]]
+position = Vector2(6, -1.52588e-05)
+rotation = -3.14159
+scale = Vector2(10, 10)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_soq1q")
+
+[node name="PlayerCam" type="Camera2D" parent="."]
+zoom = Vector2(0.05, 0.05)
+script = SubResource("GDScript_15smr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_mn15i")
+script = ExtResource("3_mvxu6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -4.8)
+shape = SubResource("RectangleShape2D_ywgp1")

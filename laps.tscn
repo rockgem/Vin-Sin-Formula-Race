@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://jyb757kdhft2"]
+
+[ext_resource type="Texture2D" uid="uid://djybr1supmafj" path="res://Art/bg1.jpg" id="1_5ab3g"]
+[ext_resource type="FontFile" uid="uid://dnmqvgxeagnqt" path="res://UI/AeogoPixellated-DYYEd.ttf" id="1_gako3"]
+[ext_resource type="Script" path="res://laps.gd" id="1_kifb6"]
+[ext_resource type="Script" path="res://UI/ModMenuBackButton.gd" id="3_k6rq8"]
+
+[node name="laps" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kifb6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(581, 290)
+scale = Vector2(1.87745, 1.62818)
+texture = ExtResource("1_5ab3g")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 20.0
+offset_right = 941.0
+offset_bottom = 230.0
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="no of laps" type="Label" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gako3")
+theme_override_font_sizes/font_size = 40
+text = "NUMBER OF LAPS?"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.228
+anchor_bottom = 0.41
+offset_left = 473.0
+offset_top = 223.0
+offset_right = 664.88
+offset_bottom = 249.6
+
+[node name="LapsAmount" type="SpinBox" parent="Panel/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 4.0
+value = 1.0
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+anchor_right = 0.228
+anchor_bottom = 0.41
+offset_left = 347.0
+offset_top = 270.0
+offset_right = 677.88
+offset_bottom = 403.6
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Start" type="Button" parent="Panel/MarginContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gako3")
+theme_override_font_sizes/font_size = 40
+text = "START"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 23.0
+offset_right = 261.0
+offset_bottom = 63.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 150
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gako3")
+theme_override_font_sizes/font_size = 20
+text = "Back"
+script = ExtResource("3_k6rq8")
+
+[connection signal="pressed" from="Panel/MarginContainer3/Start" to="." method="_on_start_pressed"]

@@ -1,0 +1,9 @@
+diff a/overhead.tscn b/overhead.tscn	(rejected hunks)
+@@ -81,7 +81,6 @@
+ 
+ [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+ position = Vector2(0.5, -0.699997)
+-scale = Vector2(1, 1)
+ shape = SubResource("RectangleShape2D_tv153")
+ 
+ [node name="CanvasLayer" type="CanvasLayer" parent="."]

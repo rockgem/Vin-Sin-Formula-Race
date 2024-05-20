@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cav35ods6u442"]
+
+[ext_resource type="Texture2D" uid="uid://dsjp33dam1x8d" path="res://icon.svg" id="1_fdo8w"]
+[ext_resource type="Script" path="res://Player/Character.gd" id="2_03k7g"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.634488, 0)
+billboard = 2
+texture = ExtResource("1_fdo8w")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77663, 0, -3.65487)
+script = ExtResource("2_03k7g")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(0.0481096, 0.205948, 0.97738, -0.0101251, 0.978563, -0.205699, -0.998791, -9.25777e-10, 0.0491635, 1.40779, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+flip_v = true
+pixel_size = 0.005
+billboard = 2
+texture = ExtResource("1_fdo8w")
