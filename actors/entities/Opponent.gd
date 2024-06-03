@@ -29,7 +29,7 @@ func _physics_process(delta):
 	set_danger()
 	choose_direction()
 	var desired_velocity = chosen_dir.rotated(rotation) * max_speed
-	velocity = vel.linear_interpolate(desired_velocity, steer_force)
+	velocity = vel.lerp(desired_velocity, steer_force)
 	rotation = vel.angle()
 	move_and_collide(velocity * delta)
 
