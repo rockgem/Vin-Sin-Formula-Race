@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhr0tfyop36fw"]
+
+[ext_resource type="Script" path="res://actors/entities/Opponent.gd" id="1_1jogu"]
+[ext_resource type="Texture2D" uid="uid://bc3tlgfivj6pk" path="res://Art/Green/Green - BackWing.png" id="2_itc6x"]
+
+[node name="Opponent" type="CharacterBody2D" groups=["Opponent"]]
+scale = Vector2(10, 10)
+script = ExtResource("1_1jogu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_itc6x")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(124, 0, 246, 0)

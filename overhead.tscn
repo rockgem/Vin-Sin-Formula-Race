@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5djhsdysur05"]
+[gd_scene load_steps=18 format=3 uid="uid://c5djhsdysur05"]
 
 [ext_resource type="Script" path="res://overhead.gd" id="1_6lt4d"]
 [ext_resource type="Texture2D" uid="uid://b3med1u1qb2tc" path="res://Art/New-Updated-Track-USETHISONE.png" id="1_nl02y"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://Track/NewLapDetector.gd" id="9_bak2g"]
 [ext_resource type="Texture2D" uid="uid://d0xhxjbwjahab" path="res://Art/traffic cones.png" id="9_v4fai"]
 [ext_resource type="Script" path="res://Music/AudioStreamPlayer.gd" id="11_lfaww"]
+[ext_resource type="PackedScene" uid="uid://bhr0tfyop36fw" path="res://actors/entities/Opponent.tscn" id="12_5cxh0"]
+[ext_resource type="Texture2D" uid="uid://dp34yyoyxtqn0" path="res://Art/Blue/Blue - FrontWing SideWing.png" id="12_p3cf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vg0w"]
 size = Vector2(16344, 4312)
@@ -20,6 +22,8 @@ size = Vector2(6242, 1810)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dabs5"]
 size = Vector2(17360, 14252)
+
+[sub_resource type="Curve2D" id="Curve2D_45r34"]
 
 [node name="Overhead" type="Node2D"]
 script = ExtResource("1_6lt4d")
@@ -53,8 +57,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Vehicle" parent="." instance=ExtResource("4_h624y")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -137,9 +139,33 @@ script = ExtResource("11_lfaww")
 
 [node name="FinishLine" type="Node2D" parent="."]
 
-[connection signal="speed_change" from="Vehicle" to="CanvasLayer/TextEdit" method="_on_vehicle_speed_change"]
+[node name="Sort" type="Node2D" parent="."]
+
+[node name="Opponent" parent="Sort" instance=ExtResource("12_5cxh0")]
+position = Vector2(2668, -1464)
+
+[node name="Opponent2" parent="Sort" instance=ExtResource("12_5cxh0")]
+position = Vector2(2668, 901)
+
+[node name="Sprite2D" parent="Sort/Opponent2" index="0"]
+texture = ExtResource("12_p3cf1")
+
+[node name="Vehicle" parent="Sort" instance=ExtResource("4_h624y")]
+
+[node name="Path" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(1029, -175, -17146, -211, -21528, -1289, -21205, -24241, -19732, -27042, -11794, -27078, -9926, -25139, -9603, -15117, -3964, -14686, 16474, -14938, 22437, -16842, 30231, -16877, 31416, -18745, 31129, -25570, 28938, -26971, 19958, -26971, 18414, -25247, 19132, -17524, 19563, -3049, 18450, 328, 2681, -148)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_45r34")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
 [connection signal="input_event" from="Loop Detector" to="Loop Detector" method="_on_input_event"]
 [connection signal="player_detected" from="Loop Detector" to="LoopBlock" method="_on_loop_detector_player_detected"]
 [connection signal="body_entered" from="NewLapDetector" to="." method="_on_new_lap_detector_body_entered"]
 [connection signal="input_event" from="NewLapDetector" to="NewLapDetector" method="_on_input_event"]
 [connection signal="lap_started" from="NewLapDetector" to="LoopBlock" method="_on_new_lap_detector_lap_started"]
+[connection signal="speed_change" from="Sort/Vehicle" to="CanvasLayer/TextEdit" method="_on_vehicle_speed_change"]
+
+[editable path="Sort/Opponent2"]
