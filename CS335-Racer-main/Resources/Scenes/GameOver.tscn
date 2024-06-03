@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr6c5xaoupyiu"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/UI/Popups/GameOver.gd" id="1_j5ata"]
+[ext_resource type="PackedScene" uid="uid://dooops83ymi5k" path="res://Resources/Scenes/position_rank.tscn" id="2_74qkn"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j5ata")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.243137)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 366.0
+offset_top = 146.0
+offset_right = -366.0
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = 28.0
+offset_right = -27.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Race Finished!"
+horizontal_alignment = 1
+
+[node name="Positions" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PositionRank" parent="Panel/VBoxContainer/Positions" instance=ExtResource("2_74qkn")]
+layout_mode = 2
+text = "1. You"
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Retry" type="Button" parent="Panel/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retry"
+
+[node name="MainMenu" type="Button" parent="Panel/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Buttons/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Buttons/MainMenu" to="." method="_on_main_menu_pressed"]

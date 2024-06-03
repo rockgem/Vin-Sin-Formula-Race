@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+<<<<<<<< HEAD:Resources/Art/Mod Car Screen-export.png.import
+uid="uid://djy3uh8tg7ops"
+path="res://.godot/imported/Mod Car Screen-export.png-f59d094adfaa8d5d2d26c5434fa21b0e.ctex"
+========
+uid="uid://b424n60m1ta4h"
+path="res://.godot/imported/Blue - Reverse.png-87b8a45f7370ad2f96a55846615bfe56.ctex"
+>>>>>>>> main:Resources/Art/Blue/Blue - Reverse.png.import
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+<<<<<<<< HEAD:Resources/Art/Mod Car Screen-export.png.import
+source_file="res://Art/Mod Car Screen-export.png"
+dest_files=["res://.godot/imported/Mod Car Screen-export.png-f59d094adfaa8d5d2d26c5434fa21b0e.ctex"]
+========
+source_file="res://Resources/Art/Blue/Blue - Reverse.png"
+dest_files=["res://.godot/imported/Blue - Reverse.png-87b8a45f7370ad2f96a55846615bfe56.ctex"]
+>>>>>>>> main:Resources/Art/Blue/Blue - Reverse.png.import
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

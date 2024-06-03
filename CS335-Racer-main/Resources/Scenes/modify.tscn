@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=3 uid="uid://de84v36fetd5a"]
+
+[ext_resource type="Texture2D" uid="uid://n8hxuritvdxu" path="res://Resources/Art/Mod Car Screen.png" id="1_uqo2x"]
+[ext_resource type="Texture2D" uid="uid://y2jjgy63e2ik" path="res://Resources/Art/Red/Red -.png" id="2_jfttj"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/CarSprite.gd" id="3_jkr0n"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/ModMenuBackButton.gd" id="4_pnntv"]
+[ext_resource type="FontFile" uid="uid://dnmqvgxeagnqt" path="res://Resources/Scripts/UI/AeogoPixellated-DYYEd.ttf" id="5_3qie8"]
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584.5, 326)
+scale = Vector2(1.68143, 1.55714)
+texture = ExtResource("1_uqo2x")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 120.0
+offset_right = 768.0
+offset_bottom = 160.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer2"]
+position = Vector2(224, 192)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_jfttj")
+script = ExtResource("3_jkr0n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 64.0
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+flat = true
+script = ExtResource("4_pnntv")
+
+[node name="DorsalWingContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 328.0
+offset_top = 296.0
+offset_right = 539.0
+offset_bottom = 341.0
+
+[node name="DorsalWingButton" type="OptionButton" parent="DorsalWingContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_3qie8")
+item_count = 2
+selected = 0
+popup/item_0/text = "Default Dorsals"
+popup/item_0/id = 0
+popup/item_1/text = "Aero Dorsals"
+popup/item_1/id = 1
+
+[node name="ColorContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 328.0
+offset_top = 160.0
+offset_right = 591.0
+offset_bottom = 200.0
+
+[node name="ColorButton" type="OptionButton" parent="ColorContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_3qie8")
+item_count = 5
+selected = 0
+popup/item_0/text = "Racing Red"
+popup/item_0/id = 0
+popup/item_1/text = "Boosted Blue"
+popup/item_1/id = 1
+popup/item_2/text = "Performance Pink"
+popup/item_2/id = 2
+popup/item_3/text = "Gearshift Green"
+popup/item_3/id = 3
+popup/item_4/text = "Okay Orange"
+popup/item_4/id = 4
+
+[node name="BackWingContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 328.0
+offset_top = 368.0
+offset_right = 591.0
+offset_bottom = 408.0
+
+[node name="BackWingButton" type="OptionButton" parent="BackWingContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_3qie8")
+item_count = 2
+selected = 0
+popup/item_0/text = "Default Spoiler"
+popup/item_0/id = 0
+popup/item_1/text = "Aero Spoiler"
+popup/item_1/id = 1
+
+[node name="FrontWingContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 228.0
+offset_right = 368.0
+offset_bottom = 268.0
+
+[node name="FrontWingButton" type="OptionButton" parent="FrontWingContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_3qie8")
+item_count = 2
+selected = 0
+popup/item_0/text = "Default Front Wing"
+popup/item_0/id = 0
+popup/item_1/text = "Boosted Front Wing"
+popup/item_1/id = 1
+
+[connection signal="item_selected" from="DorsalWingContainer/DorsalWingButton" to="MarginContainer2/Sprite2D" method="_on_dorsal_wing_button_item_selected"]
+[connection signal="item_selected" from="ColorContainer/ColorButton" to="MarginContainer2/Sprite2D" method="_on_color_button_item_selected"]
+[connection signal="item_selected" from="BackWingContainer/BackWingButton" to="MarginContainer2/Sprite2D" method="_on_back_wing_button_item_selected"]
+[connection signal="item_selected" from="FrontWingContainer/FrontWingButton" to="MarginContainer2/Sprite2D" method="_on_front_wing_button_item_selected"]

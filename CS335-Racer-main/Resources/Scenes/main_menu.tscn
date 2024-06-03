@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://bc2l438g4exkk"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/UI/MainMenu.gd" id="1_sv5fb"]
+[ext_resource type="Texture2D" uid="uid://daqdy2fvaha1" path="res://Resources/Art/title screen 1.png" id="2_0coku"]
+[ext_resource type="FontFile" uid="uid://dnmqvgxeagnqt" path="res://Resources/Scripts/UI/AeogoPixellated-DYYEd.ttf" id="3_xdjof"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/QuitButton.gd" id="4_h1dsr"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/StartButton.gd" id="5_7j0gv"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/ModifyButton.gd" id="6_325e5"]
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sv5fb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.5, 324.5)
+scale = Vector2(1.64714, 1.54524)
+texture = ExtResource("2_0coku")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 249.0
+offset_top = 512.0
+offset_right = 589.0
+offset_bottom = 702.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.596771, 0.728931)
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Quit Button" type="Button" parent="MarginContainer2"]
+custom_minimum_size = Vector2(200, 90)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xdjof")
+theme_override_font_sizes/font_size = 40
+flat = true
+script = ExtResource("4_h1dsr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 426.0
+offset_right = 453.0
+offset_bottom = 506.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Start Button" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_stretch_ratio = 4.03
+theme_override_fonts/font = ExtResource("3_xdjof")
+theme_override_font_sizes/font_size = 40
+flat = true
+script = ExtResource("5_7j0gv")
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.228
+anchor_bottom = 0.41
+offset_left = 693.0
+offset_top = 496.0
+offset_right = 734.344
+offset_bottom = 309.32
+scale = Vector2(1.14284, 1)
+
+[node name="Button" type="Button" parent="MarginContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xdjof")
+theme_override_font_sizes/font_size = 72
+flat = true
+script = ExtResource("6_325e5")

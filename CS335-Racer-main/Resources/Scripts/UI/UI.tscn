@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnnrlwknig45j"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/UI/UI.gd" id="1_lqbdm"]
+[ext_resource type="PackedScene" uid="uid://dooops83ymi5k" path="res://Resources/Scenes/position_rank.tscn" id="2_njwqm"]
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+script = ExtResource("1_lqbdm")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Laps" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 25.0
+offset_top = 19.0
+offset_right = 96.0
+offset_bottom = 42.0
+text = "Laps: 5/5"
+
+[node name="Positions" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 58.0
+offset_right = 204.0
+offset_bottom = 357.0
+
+[node name="PositionRank" parent="Control/Positions" instance=ExtResource("2_njwqm")]
+layout_mode = 2
+text = "1. You"

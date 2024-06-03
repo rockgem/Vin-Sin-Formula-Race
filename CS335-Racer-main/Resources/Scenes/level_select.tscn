@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://drfw27w2aad1d"]
+
+[ext_resource type="Texture2D" uid="uid://ucvq0e8ogpoq" path="res://Resources/Art/Actual Number of Laps Screen.png" id="1_vmcdj"]
+[ext_resource type="FontFile" uid="uid://dnmqvgxeagnqt" path="res://Resources/Scripts/UI/AeogoPixellated-DYYEd.ttf" id="2_cd8k8"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/LevelSelectBackButton.gd" id="3_eiodi"]
+[ext_resource type="Texture2D" uid="uid://dng1gunjdsews" path="res://Resources/Art/Other Track Layout.png" id="4_wyvmm"]
+[ext_resource type="Texture2D" uid="uid://bhum8h5tt1558" path="res://Resources/Art/Track layout option 1.png" id="5_36hp1"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/MinnowMeadowButton.gd" id="6_vy2b2"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/PolarParkwayButton.gd" id="7_5es7g"]
+
+[node name="LevelSelect" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+visible = false
+position = Vector2(580.5, 323)
+scale = Vector2(1.64714, 1.53333)
+texture = ExtResource("1_vmcdj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 298.0
+offset_right = 921.0
+offset_bottom = 508.0
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="no of laps" type="Label" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cd8k8")
+theme_override_font_sizes/font_size = 40
+
+[node name="TextEdit" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 83.0
+offset_right = 831.0
+offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("2_cd8k8")
+theme_override_font_sizes/font_size = 56
+text = "Choose A Map"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 48.0
+offset_top = 23.0
+offset_right = 271.0
+offset_bottom = 63.0
+scale = Vector2(1.4, 1)
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 150
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cd8k8")
+theme_override_font_sizes/font_size = 20
+text = "Back"
+flat = true
+script = ExtResource("3_eiodi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(736.938, 321.625)
+scale = Vector2(0.0694792, 0.0694792)
+texture = ExtResource("4_wyvmm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(299, 318)
+scale = Vector2(0.0713636, 0.0713636)
+texture = ExtResource("5_36hp1")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 153.0
+offset_top = 442.0
+offset_right = 447.0
+offset_bottom = 511.0
+theme_override_fonts/font = ExtResource("2_cd8k8")
+theme_override_font_sizes/font_size = 23
+text = "Minnow Meadow"
+script = ExtResource("6_vy2b2")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 607.0
+offset_top = 449.0
+offset_right = 853.0
+offset_bottom = 507.0
+theme_override_fonts/font = ExtResource("2_cd8k8")
+theme_override_font_sizes/font_size = 22
+text = "Polar Parkway"
+script = ExtResource("7_5es7g")

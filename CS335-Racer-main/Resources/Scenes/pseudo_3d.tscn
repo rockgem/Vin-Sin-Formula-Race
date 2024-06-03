@@ -1,0 +1,122 @@
+[gd_scene load_steps=18 format=3 uid="uid://bfla8aje5f4q3"]
+
+[ext_resource type="Texture2D" uid="uid://dsjp33dam1x8d" path="res://Resources/Art/icon.svg" id="1_fdo8w"]
+[ext_resource type="Script" path="res://Resources/Scripts/Player/CharacterBody3D.gd" id="2_fkmip"]
+[ext_resource type="Texture2D" uid="uid://bojum2yk5ie0q" path="res://Resources/Art/New Updated Track with Stands (USE THIS ONE!!).png" id="3_3vcw3"]
+[ext_resource type="Texture2D" uid="uid://wvh60upeq1ju" path="res://Resources/Art/Pink/Pink - BackWing SideWing.png" id="3_qm1t6"]
+[ext_resource type="Texture2D" uid="uid://w4w5lx1ygmu0" path="res://Resources/Art/wall1.png" id="4_x18lk"]
+[ext_resource type="Texture2D" uid="uid://bvwf6syhpriah" path="res://Resources/Art/wall2.png" id="5_d18n3"]
+[ext_resource type="Texture2D" uid="uid://qcmlawrdaiwl" path="res://Resources/Art/wall3.png" id="6_l46xg"]
+[ext_resource type="Texture2D" uid="uid://dj50e3fr7rrsh" path="res://Resources/Art/wall4.png" id="7_ys1q5"]
+[ext_resource type="Texture2D" uid="uid://bb0s7dfkwhgud" path="res://Resources/Art/top.png" id="8_rocvw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0te1w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7voy3"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_hc4b5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_edwmg"]
+size = Vector3(1.12213, 1, 0.503662)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_du6tx"]
+size = Vector3(1, 1, 0.517334)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_88nwi"]
+size = Vector3(1, 1, 0.204956)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3i03"]
+size = Vector3(1, 1, 0.491211)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihcyl"]
+size = Vector3(1, 1, 0.455078)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Fasle tree" type="StaticBody3D" parent="."]
+
+[node name="False tree" type="Sprite3D" parent="Fasle tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.634488, 0)
+billboard = 2
+texture = ExtResource("1_fdo8w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fasle tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.524, 0)
+shape = SubResource("BoxShape3D_0te1w")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77663, 0, -3.65487)
+script = ExtResource("2_fkmip")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(0.999306, 0.00252683, -0.037168, 0.00302164, 0.988912, 0.148471, 0.037131, -0.14848, 0.988218, 0, 0.317387, 1.408)
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+pixel_size = 0.005
+billboard = 2
+texture = ExtResource("3_qm1t6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("SphereShape3D_7voy3")
+
+[node name="Cage" type="Node" parent="."]
+
+[node name="Bottom_Track" type="StaticBody3D" parent="Cage"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cage/Bottom_Track"]
+shape = SubResource("WorldBoundaryShape3D_hc4b5")
+
+[node name="Sprite3D" type="Sprite3D" parent="Cage/Bottom_Track"]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0, 0)
+texture = ExtResource("3_3vcw3")
+
+[node name="Wall 1" type="StaticBody3D" parent="Cage"]
+transform = Transform3D(275, 0, 0, 0, 275, 0, 0, 0, 275, 0, 81.4034, 107.723)
+
+[node name="Sprite3D" type="Sprite3D" parent="Cage/Wall 1"]
+transform = Transform3D(0.999998, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, 0, 0, 0)
+texture = ExtResource("4_x18lk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cage/Wall 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0228577, 0, 0.248169)
+shape = SubResource("BoxShape3D_edwmg")
+
+[node name="Wall 2" type="StaticBody3D" parent="Cage"]
+transform = Transform3D(5.73206e-13, 1.31134e-05, 300, 300, -1.31134e-05, -5.91383e-20, 1.31134e-05, 300, -1.31134e-05, 155.48, 85.6827, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Cage/Wall 2"]
+texture = ExtResource("5_d18n3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cage/Wall 2"]
+transform = Transform3D(1, -7.10543e-15, 4.02341e-20, 7.10543e-15, 1, -7.10543e-15, 3.07049e-20, 7.10543e-15, 1, 0, -8.88178e-15, 0.241333)
+shape = SubResource("BoxShape3D_du6tx")
+
+[node name="Wall 3" type="StaticBody3D" parent="Cage"]
+transform = Transform3D(275, 0, 0, 0, 275, 0, 0, 0, 275, 0, 87.0909, -109.412)
+
+[node name="Sprite3D" type="Sprite3D" parent="Cage/Wall 3"]
+texture = ExtResource("6_l46xg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cage/Wall 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0882594)
+shape = SubResource("BoxShape3D_88nwi")
+
+[node name="Wall 4" type="StaticBody3D" parent="Cage"]
+transform = Transform3D(5.73206e-13, 1.31134e-05, 300, 300, -1.31134e-05, 0, 1.31134e-05, 300, -1.31134e-05, -159.377, 112.347, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Cage/Wall 4"]
+texture = ExtResource("7_ys1q5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cage/Wall 4"]
+transform = Transform3D(0.999995, 0, -2.4869e-13, 0, 0.999995, 0, 2.4869e-13, 0, 0.999995, 3.01981e-14, 0, -0.254394)
+shape = SubResource("BoxShape3D_j3i03")
+
+[node name="Top" type="StaticBody3D" parent="Cage"]
+transform = Transform3D(300, 0, 0, 0, -1.31134e-05, -300, 0, 300, -1.31134e-05, 0, 169.183, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Cage/Top"]
+texture = ExtResource("8_rocvw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cage/Top"]
+transform = Transform3D(0.999996, 0, 0, 0, 0.999996, 1.84741e-13, 0, -1.84741e-13, 0.999996, 0, -1.77636e-15, -0.272461)
+shape = SubResource("BoxShape3D_ihcyl")

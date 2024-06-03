@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5djhsdysur05"]
+
+[ext_resource type="Texture2D" uid="uid://dsjp33dam1x8d" path="res://icon.svg" id="1_r20lw"]
+[ext_resource type="Script" path="res://Character2D.gd" id="2_plmio"]
+[ext_resource type="FontFile" uid="uid://dnmqvgxeagnqt" path="res://AeogoPixellated-DYYEd.ttf" id="3_cab4r"]
+[ext_resource type="Script" path="res://Speedometer.gd" id="3_sf058"]
+
+[sub_resource type="GDScript" id="GDScript_15smr"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Overhead" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1000, 1000)
+texture = ExtResource("1_r20lw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(10, 10)
+script = ExtResource("2_plmio")
+
+[node name="PlayerCam" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.05, 0.05)
+script = SubResource("GDScript_15smr")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+rotation = 1.5708
+texture = ExtResource("1_r20lw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+layout_direction = 1
+offset_left = 940.0
+offset_top = 549.0
+offset_right = 1157.0
+offset_bottom = 637.0
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_cab4r")
+theme_override_font_sizes/font_size = 75
+text = "0"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+scroll_fit_content_height = true
+text_direction = 1
+script = ExtResource("3_sf058")
+metadata/ignore_rotation = true
+
+[connection signal="speed_change" from="CharacterBody2D" to="CanvasLayer/TextEdit" method="_on_character_body_2d_speed_change"]

@@ -1,0 +1,318 @@
+[gd_scene load_steps=25 format=3 uid="uid://c5djhsdysur05"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/Track/overhead.gd" id="1_r0xw4"]
+[ext_resource type="PackedScene" uid="uid://bnnrlwknig45j" path="res://Resources/Scripts/UI/UI.tscn" id="2_ax68v"]
+[ext_resource type="Texture2D" uid="uid://bhum8h5tt1558" path="res://Resources/Art/Track layout option 1.png" id="3_cp05x"]
+[ext_resource type="PackedScene" uid="uid://dkeqt4sok007o" path="res://Resources/Scenes/vehicle.tscn" id="4_h3lf8"]
+[ext_resource type="FontFile" uid="uid://dnmqvgxeagnqt" path="res://Resources/Scripts/UI/AeogoPixellated-DYYEd.ttf" id="5_odxm5"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/Speedometer.gd" id="6_cr3gc"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/Popups/PitStopMenu.gd" id="7_5057j"]
+[ext_resource type="Script" path="res://Resources/Scripts/Track/LoopDetector.gd" id="7_h1y4w"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/Popups/PitStopResumeButton.gd" id="7_jcu66"]
+[ext_resource type="Script" path="res://Resources/Scripts/Track/Loop Block.gd" id="8_1ly6n"]
+[ext_resource type="Texture2D" uid="uid://d0xhxjbwjahab" path="res://Resources/Art/traffic cones.png" id="9_pyank"]
+[ext_resource type="Script" path="res://Resources/Scripts/Track/NewLapDetector.gd" id="10_iqxyv"]
+[ext_resource type="Script" path="res://Resources/Scripts/Track/AudioStreamPlayer.gd" id="11_ea1w1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cexyb"]
+size = Vector2(8630, 31147)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gsgn"]
+size = Vector2(58519, 6322)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wod2s"]
+size = Vector2(60313, 8031)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eutnp"]
+size = Vector2(24262, 10679)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lt25"]
+size = Vector2(14096, 23237)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tak4e"]
+size = Vector2(4186, 23123.1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxcyv"]
+size = Vector2(34343, 8713)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ximso"]
+size = Vector2(5809, 21272)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vg0w"]
+size = Vector2(20660, 5264)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upce0"]
+size = Vector2(7434, 2296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dabs5"]
+size = Vector2(14829.5, 7151)
+
+[node name="Overhead" type="Node2D"]
+script = ExtResource("1_r0xw4")
+
+[node name="UI" parent="." instance=ExtResource("2_ax68v")]
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(8524, -26924)
+scale = Vector2(31.0054, 31.0054)
+texture = ExtResource("3_cp05x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
+position = Vector2(-176.583, 521.974)
+scale = Vector2(0.0405007, 0.0405007)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/StaticBody2D"]
+position = Vector2(9879.46, -223.776)
+scale = Vector2(0.985039, 0.985039)
+build_mode = 1
+polygon = PackedVector2Array(28200.9, 9146.85, 13196.4, 8713.36, 2736.94, 8173.28, 1231.42, 2211.07, 479.162, 8404.75, -20626.6, 9071.73, -24342.2, 8088.01, -28439.5, 5793.68, -30132.9, 3006.98, -30692.4, -1768.05, -37315.1, -6114.22, -37108.1, -22153.6, -36797.7, -28983.3, -31209.8, -32294.7, -25712.7, -35576.3, -11838.1, -35494.1, -5903.33, -35494.1, -5861.71, -29191.8, -6089.11, -19874.4, -5625.17, -18665.3, -44.6758, -18542.4, -167.514, -17592.2, 9087.97, -17498.8, 9476.79, -18569.9, 14855.3, -18350.6, 15755.7, -19397.2, 15853.2, -24361.5, 16004.5, -27383.7, 16062.3, -28946.1, 16583.1, -31608.9, 21242.8, -31637.4, 32327.7, -31348, 35366.2, -31261.8, 36784.4, -29264.9, 36813.8, -26225.4, 36726.5, -22376.8, 36668.6, -19077.4, 36700.1, -17738.4, 35398.6, -14616.7, 33593.6, -11303.1, 23087.4, -11071.7, 33831.2, -10202.7, 34271.8, 8799.66)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/StaticBody2D"]
+position = Vector2(9175.49, 181.562)
+build_mode = 1
+polygon = PackedVector2Array(22168, -19304, 22464, -19224, 28664, -19160, 29128, -19400, 29208, -19912, 29176, -24720, 28840, -24984, 22784, -24968, 22280, -24888, 22064, -24544, 22048, -19496)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Map/StaticBody2D"]
+position = Vector2(9535.43, -0.0038884)
+build_mode = 1
+polygon = PackedVector2Array(-12240, -25328, -12064, -24888, -12064, -23368, -12064, -13432, -11696, -13024, -9968, -13024, 1968, -12992, 15968, -12960, 16080, -12864, 16344, -11984, 16344, -10464, 16416, -3680, 16232, -3224, 12208, -3176, -7184, -3176, -17912, -3248, -18864, -3448, -18848, -4648, -18776, -9088, -18776, -14920, -18712, -25024, -18544, -25464)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Map/StaticBody2D"]
+polygon = PackedVector2Array(-20914.3, -8199.16, -21064, -25103.9, -18949, -25115.9, -19035, -8101.21)
+
+[node name="EnteredPitStop" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnteredPitStop"]
+position = Vector2(-26301, -32212.5)
+shape = SubResource("RectangleShape2D_cexyb")
+
+[node name="Grass" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Grass"]
+position = Vector2(14528, -4894)
+shape = SubResource("RectangleShape2D_3gsgn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Grass"]
+position = Vector2(30049, -51149)
+shape = SubResource("RectangleShape2D_wod2s")
+
+[node name="Sprite2D_Grass#CollisionShape2D4" type="CollisionShape2D" parent="Grass"]
+position = Vector2(4279, -23235.5)
+shape = SubResource("RectangleShape2D_eutnp")
+
+[node name="Sprite2D_Grass#CollisionShape2D5" type="CollisionShape2D" parent="Grass"]
+position = Vector2(64560, -38326)
+shape = SubResource("RectangleShape2D_8lt25")
+
+[node name="Sprite2D_Grass#CollisionShape2D6" type="CollisionShape2D" parent="Grass"]
+position = Vector2(46252, -17674)
+shape = SubResource("RectangleShape2D_tak4e")
+
+[node name="Sprite2D_Grass#CollisionShape2D7" type="CollisionShape2D" parent="Grass"]
+position = Vector2(-9228, -52374)
+shape = SubResource("RectangleShape2D_qxcyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass"]
+position = Vector2(8807, -44312)
+shape = SubResource("RectangleShape2D_ximso")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Vehicle" parent="." instance=ExtResource("4_h3lf8")]
+unique_name_in_owner = true
+position = Vector2(16582, -11584)
+collision_layer = 3
+
+[node name="UICanvas" type="CanvasLayer" parent="."]
+
+[node name="TextEdit" type="TextEdit" parent="UICanvas"]
+layout_direction = 1
+offset_left = 940.0
+offset_top = 549.0
+offset_right = 1157.0
+offset_bottom = 637.0
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_odxm5")
+theme_override_font_sizes/font_size = 75
+text = "0"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+scroll_fit_content_height = true
+text_direction = 1
+script = ExtResource("6_cr3gc")
+metadata/ignore_rotation = true
+
+[node name="PitStopMenu" type="Control" parent="UICanvas"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_5057j")
+
+[node name="MarginContainer" type="MarginContainer" parent="UICanvas/PitStopMenu"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 62.0
+offset_right = 836.0
+offset_bottom = 550.0
+
+[node name="TextEdit" type="TextEdit" parent="UICanvas/PitStopMenu/MarginContainer"]
+layout_direction = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_odxm5")
+text = "										   Modify Car"
+draw_tabs = true
+
+[node name="BackWingButton" type="OptionButton" parent="UICanvas/PitStopMenu"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 488.0
+offset_top = 306.0
+offset_right = 709.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_odxm5")
+item_count = 2
+selected = 0
+popup/item_0/text = "Default Spoiler"
+popup/item_0/id = 0
+popup/item_1/text = "Aero Spoiler"
+popup/item_1/id = 1
+
+[node name="ColorButton" type="OptionButton" parent="UICanvas/PitStopMenu"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 484.0
+offset_top = 144.0
+offset_right = 731.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_odxm5")
+item_count = 5
+selected = 0
+popup/item_0/text = "Racing Red"
+popup/item_0/id = 0
+popup/item_1/text = "Boosted Blue"
+popup/item_1/id = 1
+popup/item_2/text = "Performance Pink"
+popup/item_2/id = 2
+popup/item_3/text = "Gearshift Green"
+popup/item_3/id = 3
+popup/item_4/text = "Okay Orange"
+popup/item_4/id = 4
+
+[node name="FrontWingButton" type="OptionButton" parent="UICanvas/PitStopMenu"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 485.0
+offset_top = 198.0
+offset_right = 748.0
+offset_bottom = 223.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_odxm5")
+item_count = 2
+selected = 0
+popup/item_0/text = "Default Front Wing"
+popup/item_0/id = 0
+popup/item_1/text = "Boosted Front Wing"
+popup/item_1/id = 1
+
+[node name="DorsalWingButton" type="OptionButton" parent="UICanvas/PitStopMenu"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 487.0
+offset_top = 252.0
+offset_right = 716.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_odxm5")
+item_count = 2
+selected = 0
+popup/item_0/text = "Default Dorsals"
+popup/item_0/id = 0
+popup/item_1/text = "Aero Dorsals"
+popup/item_1/id = 1
+
+[node name="Button" type="Button" parent="UICanvas/PitStopMenu"]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 457.0
+offset_right = 671.0
+offset_bottom = 499.0
+theme_override_fonts/font = ExtResource("5_odxm5")
+text = "Resume"
+script = ExtResource("7_jcu66")
+
+[node name="Loop Detector" type="Area2D" parent="."]
+position = Vector2(17128, -17928)
+script = ExtResource("7_h1y4w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loop Detector"]
+position = Vector2(29865, -26407)
+shape = SubResource("RectangleShape2D_2vg0w")
+
+[node name="LoopBlock" type="StaticBody2D" parent="."]
+position = Vector2(36697, -27185)
+script = ExtResource("8_1ly6n")
+
+[node name="LoopBox" type="CollisionShape2D" parent="LoopBlock"]
+position = Vector2(3004, 1587)
+shape = SubResource("RectangleShape2D_upce0")
+
+[node name="TrafficCones" type="Sprite2D" parent="LoopBlock"]
+position = Vector2(3282.61, 1472)
+scale = Vector2(38.6087, 38.6087)
+texture = ExtResource("9_pyank")
+
+[node name="NewLapDetector" type="Area2D" parent="."]
+position = Vector2(-8348, -168)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("10_iqxyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NewLapDetector"]
+position = Vector2(16728.8, -11532.5)
+shape = SubResource("RectangleShape2D_dabs5")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = 10.0
+script = ExtResource("11_ea1w1")
+
+[node name="FinishLine" type="Node2D" parent="."]
+position = Vector2(4768, -3264)
+
+[connection signal="body_entered" from="EnteredPitStop" to="Vehicle" method="_on_entered_pit_stop_body_entered"]
+[connection signal="body_exited" from="EnteredPitStop" to="Vehicle" method="_on_entered_pit_stop_body_exited"]
+[connection signal="area_shape_entered" from="Grass" to="Vehicle" method="_on_grass_area_shape_entered"]
+[connection signal="body_entered" from="Grass" to="Vehicle" method="_on_grass_body_entered"]
+[connection signal="body_exited" from="Grass" to="Vehicle" method="_on_grass_body_exited"]
+[connection signal="body_shape_entered" from="Grass" to="Vehicle" method="_on_grass_body_shape_entered"]
+[connection signal="show_pit_stop" from="Vehicle" to="." method="_on_vehicle_show_pit_stop"]
+[connection signal="speed_change" from="Vehicle" to="UICanvas/TextEdit" method="_on_vehicle_speed_change"]
+[connection signal="item_selected" from="UICanvas/PitStopMenu/BackWingButton" to="UICanvas/PitStopMenu" method="_on_back_wing_button_item_selected"]
+[connection signal="item_selected" from="UICanvas/PitStopMenu/ColorButton" to="UICanvas/PitStopMenu" method="_on_color_button_item_selected"]
+[connection signal="item_selected" from="UICanvas/PitStopMenu/FrontWingButton" to="UICanvas/PitStopMenu" method="_on_front_wing_button_item_selected"]
+[connection signal="item_selected" from="UICanvas/PitStopMenu/DorsalWingButton" to="UICanvas/PitStopMenu" method="_on_dorsal_wing_button_item_selected"]
+[connection signal="input_event" from="Loop Detector" to="Loop Detector" method="_on_input_event"]
+[connection signal="player_detected" from="Loop Detector" to="." method="_on_loop_detector_player_detected"]
+[connection signal="player_detected" from="Loop Detector" to="Vehicle" method="_on_loop_detector_player_detected"]
+[connection signal="player_detected" from="Loop Detector" to="LoopBlock" method="_on_loop_detector_player_detected"]
+[connection signal="body_entered" from="NewLapDetector" to="." method="_on_new_lap_detector_body_entered"]
+[connection signal="input_event" from="NewLapDetector" to="NewLapDetector" method="_on_input_event"]
+[connection signal="lap_started" from="NewLapDetector" to="LoopBlock" method="_on_new_lap_detector_lap_started"]

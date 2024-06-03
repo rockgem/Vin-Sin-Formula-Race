@@ -1,0 +1,283 @@
+[gd_scene load_steps=19 format=3 uid="uid://cic7ihym18ik3"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/Track/overhead.gd" id="1_yqg7v"]
+[ext_resource type="PackedScene" uid="uid://bnnrlwknig45j" path="res://Resources/Scripts/UI/UI.tscn" id="2_6vaaa"]
+[ext_resource type="Texture2D" uid="uid://cc460bkmlrmwi" path="res://Resources/Art/Other Track Layout.png" id="3_xmou1"]
+[ext_resource type="PackedScene" uid="uid://dkeqt4sok007o" path="res://Resources/Scenes/vehicle.tscn" id="4_c6n2v"]
+[ext_resource type="FontFile" uid="uid://dnmqvgxeagnqt" path="res://Resources/Scripts/UI/AeogoPixellated-DYYEd.ttf" id="5_ifbrn"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/Speedometer.gd" id="6_6ary1"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/Popups/PitStopMenu.gd" id="7_wy7nj"]
+[ext_resource type="Script" path="res://Resources/Scripts/UI/Popups/PitStopResumeButton.gd" id="8_ftqhy"]
+[ext_resource type="Script" path="res://Resources/Scripts/Track/LoopDetector.gd" id="9_h8khn"]
+[ext_resource type="Script" path="res://Resources/Scripts/Track/Loop Block.gd" id="10_smj1q"]
+[ext_resource type="Texture2D" uid="uid://d0xhxjbwjahab" path="res://Resources/Art/traffic cones.png" id="11_v1g6y"]
+[ext_resource type="Script" path="res://Resources/Scripts/Track/NewLapDetector.gd" id="12_ss556"]
+[ext_resource type="Script" path="res://Resources/Scripts/Track/AudioStreamPlayer.gd" id="13_5ikn2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d10jw"]
+size = Vector2(23305, 5675.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8n4a"]
+size = Vector2(24064, 20737)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioiwj"]
+size = Vector2(7924, 3327)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5h5e"]
+size = Vector2(4224, 27244)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pbf5"]
+size = Vector2(30689.8, 5504.5)
+
+[node name="AltTrack" type="Node2D"]
+script = ExtResource("1_yqg7v")
+
+[node name="UI" parent="." instance=ExtResource("2_6vaaa")]
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(8524, -26924)
+scale = Vector2(31.0054, 31.0054)
+texture = ExtResource("3_xmou1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
+position = Vector2(-176.583, 521.974)
+scale = Vector2(0.0405007, 0.0405007)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-12321, -1086.22, -19995.4, -1314.77, -19766.8, -7538.19, -17017.8, -10249.7, -12665, -13762.4, -15833.7, -17656.5, -16139.5, -23460.3, -12282.8, -26362.1, -5486.78, -27125.8, 4821.88, -27049.4, 17384.2, -26896.5, 24752.7, -25789.6, 26241.9, -24109.3, 24409.5, -23613.2, 19674.5, -25178, 15627.5, -26469.7, 8837.04, -26453.7, -1276.52, -26517.4, -8243.72, -26308.8, -14263.3, -24109.3, -15740.5, -22311.9, -15419.6, -17720.2, -7525.42, -12961.3, -3196.5, -13603.9, 3145.58, -13474.9, 2931.36, -12704.1, 1731.27, -11804.2, -3411.51, -11718.2, -3839.94, -10732.3, -8468.29, -10646.3, -10440, -3104.15)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-3154.29, -20224.7, -1534.53, -19144.9, 8238.99, -19037.4, 9048.87, -18605, 10938.6, -18497.5, 11694.3, -17255.2, 17525.9, -15527.1, 23411.7, -14771.4, 28109.3, -14933, 28163.5, -13799.8, 30539, -13961.5, 31078.9, -12773.3, 32267, -12989.2, 32752.8, -12125.9, 34319.2, -12233.4, 34480.9, -11369.4, 35129.1, -11315.2, 36047.3, -9587.98, 37073, -9803.79, 37073, -8723.95, 38962.7, -7374.15, 40474.9, -6240.15, 40636.6, -4512.09, 38584.4, -2622.37, 38692.7, -1650.03, 42364.7, -1812.49, 42364.7, 1859.45, 41338.2, 2561.83, 41284.8, 3803.32, 36694.7, 8230.99, 33292.7, 8230.99, 33131.1, 6125.46, 31025.5, 5639.69, 29674.9, 7259.45, 29459.1, 8230.99, 25301.4, 8230.99, 24491.5, 6989.49, 18335.8, 7691.07, 17634.2, 8230.99, 13746.5, 8555.1, 11856.8, 9904.9, 9264.67, 11687.1, 7482.46, 12712.8, 4728.71, 12712.8, 1543.33, 12281.2, -184.73, 11200.6, -2074.45, 9904.9, -4018.33, 7582.77, -4450.74, 4451.55, -6124.65, 7042.85, -7096.19, 9904.9, -19245.2, 10229, -19353.5, 8230.99, -21837.3, 8339.29, -21729, 9959.05, -25563.4, 10174.9, -25616.7, 8986.72, -27290.7, 8825.06, -29127, 8393.44, -28911.2, 7636.92, -30206.9, 6719.53, -31826.6, 4127.44, -31826.6, 2777.63, -29936.9, 2615.18, -29936.9, 1103.72, -32960.6, 1319.53, -32690.7, -5376.12, -31502.5, -5430.27, -31718.3, -8723.95, -30638.5, -9155.56, -30908.4, -12827.5, -35498.6, -15797.1, -35552.7, -19631.5, -32312.4, -19577.3, -31340.9, -18605, -25563.4, -18659.1, -24159.4, -16985.2, -23727, -17740.9, -24861, -19091.5, -24753.5, -21088.8, -29181.2, -26758.7, -28802.9, -31888, -18921.9, -36316.4, -8715.95, -39231.8, 31.0784, -39393.5, 787.604, -37233.8, 17634.2, -37233.8, 27839.4, -37882, 32537, -33886, 32591.2, -32482, 34750.8, -31942.1, 35453.2, -30862.3, 37073, -29944.1, 38044.5, -28486.8, 38801, -27406.9, 38855.2, -22168.6, 35507.4, -21358.7, 33023.6, -17849.2, 33076.9, -17201, 19578.1, -17201, 18335.8, -18335, 11262.7, -20008.9, 8238.99, -21035.4, -2992.64, -20873)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Map/StaticBody2D"]
+polygon = PackedVector2Array(2537.97, 1829.19, 3691.07, 1720.89, 5421.52, 676.085, 7331.15, -225.375, 8304.29, -1775.06, 11763.6, -2748.19, 12880.9, -3396.41, 24305.2, -3684.69, 24881.8, -2604.05, 26936.3, -2711.56, 27657, -4189.57, 22719.7, -7252.3, 15836.1, -7577.21, 11547.8, -6135.83, 8016.01, -5342.67, 4160.12, -2567.42, 2717.94, 495.315)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Map/StaticBody2D"]
+polygon = PackedVector2Array(7004.65, -34582.8, 7085.08, -31346.5, 10443.3, -31508.1, 10321.4, -34542.2)
+
+[node name="EnteredPitStop" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnteredPitStop"]
+position = Vector2(13164.5, -56723.8)
+shape = SubResource("RectangleShape2D_d10jw")
+
+[node name="Grass" type="Area2D" parent="."]
+visible = false
+position = Vector2(-28672, -3584)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grass"]
+polygon = PackedVector2Array(63940, -42091, 63940, -40981, 66119, -40938, 66161, -39956, 67272, -39870, 67315, -34360, 60694, -34275, 60694, -35513, 58345, -35471, 58430, -36752, 55013, -36539, 55055, -37863, 51766, -37692, 51681, -39059, 45188, -38674, 45017, -40041, 22678, -39956, 22720, -38717, 18064, -38717, 18107, -37735, 15843, -37692, 15929, -36581, 14690, -36581, 14690, -35556, 13665, -35556, 13665, -34446, 12597, -34275, 12725, -30174, 12640, -29790, 13707, -29704, 13750, -28679, 15843, -28594, 15929, -27782, 16014, -27568, 18193, -27568, 18235, -26458, 21396, -26458, 21482, -25262, 39422, -25347, 39465, -24322, 38269, -24194, 38269, -23212, 36987, -23126, 37073, -22058, 27163, -22016, 27163, -20948, 23788, -21033, 23703, -19965, 22678, -19794, 22592, -17701, 21439, -17659, 21438, -8815, 20390, -8775, 20309, -7646, 19221, -7605, 19261, -6517, 16922, -6436, 16922, -5307, 8214, -5307, 8174, -6638, 4988, -6476, 4988, -7525, 3739, -7565, 3739, -8775, 2650, -8734, 2610, -15306, 3779, -15306, 3819, -16395, 4827, -16475, 4827, -17443, 5956, -17604, 5956, -18572, 7045, -18652, 7125, -19822, 8133, -19741, 8214, -20950, 9383, -20910, 9383, -21958, 10633, -21958, 10633, -24256, 11641, -24216, 11601, -28933, 10472, -28974, 10472, -31997, 9423, -32118, 9383, -35303, 10512, -35344, 10512, -37642, 11399, -37763, 11520, -39859, 12326, -39819, 12689, -39940, 12689, -40948, 13576, -40908, 13616, -42157, 19301, -42077, 19301, -43206, 28211, -43206, 28211, -42198, 29179, -42117, 42605, -42157)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Grass"]
+polygon = PackedVector2Array(60731, -7495, 69511, -7450, 69601, -8762, 70552, -8717, 70597, -13016, 69556, -13016, 69511, -14148, 68334, -14193, 68380, -15279, 67293, -15460, 67293, -16456, 64804, -16456, 64850, -17587, 62813, -17587, 62813, -18764, 50549, -18537, 50504, -17451, 41634, -17496, 41634, -16456, 39416, -16365, 39552, -15415, 38376, -15279, 38330, -14329, 37244, -14193, 37289, -13378, 36022, -12971, 36068, -11794, 35027, -11840, 35027, -9758, 33850, -9667, 33850, -7495, 32719, -7405, 32764, -933, 37108, -888, 37154, -2110, 38149, -2019, 38195, -3241, 39281, -3060, 39326, -4327, 40367, -4282, 40457, -6590, 41589, -6409, 41724, -7721, 42675, -7586, 42856, -8898, 45933, -8717, 46159, -9894, 54079, -9803, 54079, -8898, 60777, -8762)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Grass"]
+polygon = PackedVector2Array(27065, -47712, 30429, -47769, 30543, -46514, 60306, -46571, 52780, -50734, 33679, -50563)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Grass"]
+polygon = PackedVector2Array(65894, -46799, 53065, -53813, 53008, -56150, 32938, -56150, 32596, -53470, 20052, -47655, 16631, -47712, 16973, -46571, 10416, -46571, 10416, -45773, 7964, -45545, 8174, -44411, 7107, -44360, 7056, -43243, 5939, -43217, 5913, -40957, 4745, -40932, 4745, -37655, 3703, -37554, 3653, -32093, 4770, -31991, 4796, -29782, 5862, -29832, 5913, -25438, 4719, -25286, 4770, -24270, 3703, -24245, 3729, -23153, 2586, -23102, 2561, -22035, 1418, -22060, 1418, -21045, 402, -20892, 325, -19902, -741, -19749, -690, -18733, -2011, -18530, -1910, -16549, -3002, -16498, -3019, -6574, -2049, -6286, -2085, -4275, -828, -4059, -756, -3018, 286, -2946, 286, -1868, 1435, -1797, 1435, -755, 3626, -719, 3626, 287, 21406, 323, 21574, -816, 23700, -870, 23727, -1973, 24938, -1892, 24965, -3049, 25934, -3022, 26041, -11848, 27171, -11902, 27144, -16369, 28248, -16396, 28275, -17499, 31584, -17526, 31638, -18629, 35056, -18656, 35056, -17661, 33818, -17499, 33872, -16557, 31611, -16369, 31584, -15454, 30454, -15266, 30508, -14189, 29405, -14136, 29405, -11929, 28248, -11902, 28275, 2548, 29351, 2602, 29378, 3624, 30508, 3786, 30481, 4727, 32688, 4808, 32714, 5857, 39522, 5965, 39522, 4808, 40653, 4835, 40626, 3732, 41756, 3705, 41702, 1444, 42832, 1498, 42859, 314, 43935, 314, 43962, -762, 44985, -762, 45039, -1865, 47245, -1973, 47218, -3103, 51766, -3022, 51712, -4179, 57282, -4099, 57228, -2969, 67249, -2976, 67300, -1859, 74132, -1884, 74056, -3027, 75275, -2976, 75249, -4068, 76291, -4068, 76265, -6354, 77383, -6379, 77383, -14253, 76316, -14228, 76240, -16539, 75224, -16437, 75224, -17707, 74081, -17529, 74081, -20044, 73040, -19790, 72989, -20984, 70855, -20958, 70754, -22076, 67350, -22025, 67350, -23219, 59553, -23092, 59629, -24336, 53915, -24285, 53864, -23244, 47337, -23193, 47260, -22127, 45051, -22000, 45051, -23092, 46092, -23117, 46143, -27587, 45076, -27511, 45051, -28705, 43933, -28730, 43933, -29746, 40149, -29771, 31589, -29771, 24938, -29816, 24962, -30943, 20503, -30991, 20527, -32141, 19377, -32021, 19377, -33028, 20575, -33124, 20527, -34179, 24938, -34227, 24962, -35354, 42750, -35330, 42822, -34371, 51668, -34227, 51716, -33148, 55072, -33100, 55048, -31997, 56269, -31948, 56173, -30989, 60584, -30893, 60680, -29839, 69550, -29791, 69502, -30750, 70508, -30941, 70652, -32332, 71851, -32140, 71899, -43216, 70892, -43120, 70700, -44462, 69406, -44318, 69550, -45325, 92947, -45181, 93043, 13792, -18623, 13744, -18527, -60476, 92947, -60476, 92851, -45517, 66241, -45229)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Vehicle" parent="." instance=ExtResource("4_c6n2v")]
+unique_name_in_owner = true
+position = Vector2(13636, -47853)
+rotation = 0.0
+collision_layer = 3
+
+[node name="UICanvas" type="CanvasLayer" parent="."]
+
+[node name="TextEdit" type="TextEdit" parent="UICanvas"]
+layout_direction = 1
+offset_left = 940.0
+offset_top = 549.0
+offset_right = 1157.0
+offset_bottom = 637.0
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ifbrn")
+theme_override_font_sizes/font_size = 75
+text = "0"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+scroll_fit_content_height = true
+text_direction = 1
+script = ExtResource("6_6ary1")
+metadata/ignore_rotation = true
+
+[node name="PitStopMenu" type="Control" parent="UICanvas"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_wy7nj")
+
+[node name="MarginContainer" type="MarginContainer" parent="UICanvas/PitStopMenu"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 62.0
+offset_right = 836.0
+offset_bottom = 550.0
+
+[node name="TextEdit" type="TextEdit" parent="UICanvas/PitStopMenu/MarginContainer"]
+layout_direction = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ifbrn")
+text = "										   Modify Car"
+draw_tabs = true
+
+[node name="BackWingButton" type="OptionButton" parent="UICanvas/PitStopMenu"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 488.0
+offset_top = 306.0
+offset_right = 709.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_ifbrn")
+item_count = 2
+selected = 0
+popup/item_0/text = "Default Spoiler"
+popup/item_0/id = 0
+popup/item_1/text = "Aero Spoiler"
+popup/item_1/id = 1
+
+[node name="ColorButton" type="OptionButton" parent="UICanvas/PitStopMenu"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 484.0
+offset_top = 144.0
+offset_right = 731.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_ifbrn")
+item_count = 5
+selected = 0
+popup/item_0/text = "Racing Red"
+popup/item_0/id = 0
+popup/item_1/text = "Boosted Blue"
+popup/item_1/id = 1
+popup/item_2/text = "Performance Pink"
+popup/item_2/id = 2
+popup/item_3/text = "Gearshift Green"
+popup/item_3/id = 3
+popup/item_4/text = "Okay Orange"
+popup/item_4/id = 4
+
+[node name="FrontWingButton" type="OptionButton" parent="UICanvas/PitStopMenu"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 485.0
+offset_top = 198.0
+offset_right = 748.0
+offset_bottom = 223.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_ifbrn")
+item_count = 2
+selected = 0
+popup/item_0/text = "Default Front Wing"
+popup/item_0/id = 0
+popup/item_1/text = "Boosted Front Wing"
+popup/item_1/id = 1
+
+[node name="DorsalWingButton" type="OptionButton" parent="UICanvas/PitStopMenu"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 487.0
+offset_top = 252.0
+offset_right = 716.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_ifbrn")
+item_count = 2
+selected = 0
+popup/item_0/text = "Default Dorsals"
+popup/item_0/id = 0
+popup/item_1/text = "Aero Dorsals"
+popup/item_1/id = 1
+
+[node name="Button" type="Button" parent="UICanvas/PitStopMenu"]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 457.0
+offset_right = 671.0
+offset_bottom = 499.0
+theme_override_fonts/font = ExtResource("5_ifbrn")
+text = "Resume"
+script = ExtResource("8_ftqhy")
+
+[node name="Loop Detector" type="Area2D" parent="."]
+position = Vector2(17128, -17928)
+script = ExtResource("9_h8khn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loop Detector"]
+position = Vector2(19721, 906.5)
+shape = SubResource("RectangleShape2D_j8n4a")
+
+[node name="LoopBlock" type="StaticBody2D" parent="."]
+position = Vector2(36697, -27185)
+script = ExtResource("10_smj1q")
+
+[node name="LoopBox" type="CollisionShape2D" parent="LoopBlock"]
+position = Vector2(-34254, 3317.5)
+shape = SubResource("RectangleShape2D_ioiwj")
+
+[node name="TrafficCones" type="Sprite2D" parent="LoopBlock"]
+position = Vector2(-34093, 3520)
+scale = Vector2(38.6087, 38.6087)
+texture = ExtResource("11_v1g6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoopBlock"]
+position = Vector2(-38668, 16684)
+shape = SubResource("RectangleShape2D_g5h5e")
+
+[node name="NewLapDetector" type="Area2D" parent="."]
+position = Vector2(-8348, -168)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("12_ss556")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NewLapDetector"]
+position = Vector2(36229, -47609)
+shape = SubResource("RectangleShape2D_6pbf5")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = 10.0
+script = ExtResource("13_5ikn2")
+
+[node name="FinishLine" type="Node2D" parent="."]
+position = Vector2(4768, -3264)
+
+[connection signal="body_entered" from="EnteredPitStop" to="Vehicle" method="_on_entered_pit_stop_body_entered"]
+[connection signal="body_exited" from="EnteredPitStop" to="Vehicle" method="_on_entered_pit_stop_body_exited"]
+[connection signal="show_pit_stop" from="Vehicle" to="." method="_on_vehicle_show_pit_stop"]
+[connection signal="speed_change" from="Vehicle" to="UICanvas/TextEdit" method="_on_vehicle_speed_change"]
+[connection signal="item_selected" from="UICanvas/PitStopMenu/BackWingButton" to="UICanvas/PitStopMenu" method="_on_back_wing_button_item_selected"]
+[connection signal="item_selected" from="UICanvas/PitStopMenu/ColorButton" to="UICanvas/PitStopMenu" method="_on_color_button_item_selected"]
+[connection signal="item_selected" from="UICanvas/PitStopMenu/FrontWingButton" to="UICanvas/PitStopMenu" method="_on_front_wing_button_item_selected"]
+[connection signal="item_selected" from="UICanvas/PitStopMenu/DorsalWingButton" to="UICanvas/PitStopMenu" method="_on_dorsal_wing_button_item_selected"]
+[connection signal="input_event" from="Loop Detector" to="Loop Detector" method="_on_input_event"]
+[connection signal="input_event" from="Loop Detector" to="LoopBlock" method="_on_loop_detector_input_event"]
+[connection signal="player_detected" from="Loop Detector" to="." method="_on_loop_detector_player_detected"]
+[connection signal="player_detected" from="Loop Detector" to="Vehicle" method="_on_loop_detector_player_detected"]
+[connection signal="player_detected" from="Loop Detector" to="LoopBlock" method="_on_loop_detector_player_detected"]
+[connection signal="body_entered" from="NewLapDetector" to="." method="_on_new_lap_detector_body_entered"]
+[connection signal="input_event" from="NewLapDetector" to="NewLapDetector" method="_on_input_event"]
+[connection signal="lap_started" from="NewLapDetector" to="LoopBlock" method="_on_new_lap_detector_lap_started"]
